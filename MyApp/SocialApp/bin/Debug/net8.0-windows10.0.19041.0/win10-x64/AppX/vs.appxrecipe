@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\duong\source\repos\MyApp\SocialApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-12-03T03:44:06.792</Modified>
+      <Modified>2024-12-03T04:50:18.405</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\duong\source\repos\MyApp\SocialApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-12-03T03:35:43.289</Modified>
+      <Modified>2024-12-03T04:44:33.507</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\source\repos\MyApp\SocialApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SocialApp.runtimeconfig.json">
       <PackagePath>SocialApp.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\source\repos\MyApp\SocialApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SocialApp.dll">
       <PackagePath>SocialApp.dll</PackagePath>
-      <Modified>2024-12-03T03:44:06.475</Modified>
+      <Modified>2024-12-03T04:50:18.039</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\source\repos\MyApp\SocialApp\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>SocialApp.exe</PackagePath>
-      <Modified>2024-12-03T03:44:06.483</Modified>
+      <Modified>2024-12-03T04:50:18.043</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\source\repos\MyApp\SocialApp\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -288,7 +288,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\source\repos\MyApp\SocialApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\SocialApp.deps.json">
       <PackagePath>SocialApp.deps.json</PackagePath>
-      <Modified>2024-12-03T03:35:43.064</Modified>
+      <Modified>2024-12-03T04:44:33.276</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\duong\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.44\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

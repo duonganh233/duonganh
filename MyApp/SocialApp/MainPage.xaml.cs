@@ -1,94 +1,100 @@
-﻿namespace SocialApp;
+﻿using Microsoft.Maui.Storage;  // Thêm namespace này để sử dụng Preferences
 
-public partial class MainPage : ContentPage
+namespace SocialApp
 {
-    public MainPage()
+    public partial class MainPage : ContentPage
     {
-        InitializeComponent();
-    }
-
-    private async void OnLoginButtonClicked(object sender, EventArgs e)
-    {
-        string email = EmailEntry.Text;
-        string password = PasswordEntry.Text;
-
-        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+        public MainPage()
         {
-            await DisplayAlert("Lỗi", "Vui lòng nhập đầy đủ thông tin.", "OK");
-            return;
+            InitializeComponent();
         }
 
-        if (!IsValidEmail(email))
+        private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Lỗi", "Email không hợp lệ.", "OK");
-            return;
+            string email = EmailEntry.Text;
+            string password = PasswordEntry.Text;
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                await DisplayAlert("Lỗi", "Vui lòng nhập đầy đủ thông tin.", "OK");
+                return;
+            }
+
+            if (!IsValidEmail(email))
+            {
+                await DisplayAlert("Lỗi", "Email không hợp lệ.", "OK");
+                return;
+            }
+
+            if (!IsValidPassword(password))
+            {
+                await DisplayAlert("Lỗi", "Mật khẩu không hợp lệ. Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.", "OK");
+                return;
+            }
+
+            // Lấy thông tin đăng nhập đã lưu trong Preferences
+            string savedEmail = Preferences.Get("Email", string.Empty); // Lấy email đã lưu
+            string savedPassword = Preferences.Get("Password", string.Empty); // Lấy mật khẩu đã lưu
+
+            // Kiểm tra thông tin email và mật khẩu
+            if (email == savedEmail && password == savedPassword)
+            {
+                await DisplayAlert("Thành công", "Đăng nhập thành công!", "OK");
+                // Chuyển sang trang chính (nếu có)
+                //Navigation.PushAsync(new MainPage()); // Ví dụ, chuyển sang trang chính
+            }
+            else
+            {
+                await DisplayAlert("Lỗi", "Email hoặc mật khẩu không đúng.", "OK");
+            }
         }
 
-        if (!IsValidPassword(password))
+        private bool IsValidEmail(string email)
         {
-            await DisplayAlert("Lỗi", "Mật khẩu không hợp lệ. Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường, số và ký tự đặc biệt.", "OK");
-            return;
+            // Kiểm tra định dạng email
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        // Thực hiện logic đăng nhập tại đây
-        if (email == "test@example.com" && password == "Password@123")
+        private bool IsValidPassword(string password)
         {
-            await DisplayAlert("Thành công", "Đăng nhập thành công!", "OK");
-            // Chuyển sang trang chính
-        }
-        else
-        {
-            await DisplayAlert("Lỗi", "Email hoặc mật khẩu không đúng.", "OK");
-        }
-    }
+            // Kiểm tra mật khẩu có đáp ứng tiêu chuẩn bảo mật
+            if (password.Length < 8)
+                return false;
 
-    private bool IsValidEmail(string email)
-    {
-        // Kiểm tra định dạng email
-        try
-        {
-            var addr = new System.Net.Mail.MailAddress(email);
-            return addr.Address == email;
-        }
-        catch
-        {
+            bool hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;
+
+            foreach (var c in password)
+            {
+                if (char.IsUpper(c)) hasUpper = true;
+                else if (char.IsLower(c)) hasLower = true;
+                else if (char.IsDigit(c)) hasDigit = true;
+                else if (!char.IsLetterOrDigit(c)) hasSpecial = true;
+
+                if (hasUpper && hasLower && hasDigit && hasSpecial)
+                    return true;
+            }
+
             return false;
         }
-    }
 
-    private bool IsValidPassword(string password)
-    {
-        // Kiểm tra mật khẩu có đáp ứng tiêu chuẩn bảo mật
-        if (password.Length < 8)
-            return false;
-
-        bool hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;
-
-        foreach (var c in password)
+        private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {
-            if (char.IsUpper(c)) hasUpper = true;
-            else if (char.IsLower(c)) hasLower = true;
-            else if (char.IsDigit(c)) hasDigit = true;
-            else if (!char.IsLetterOrDigit(c)) hasSpecial = true;
-
-            if (hasUpper && hasLower && hasDigit && hasSpecial)
-                return true;
+            // Điều hướng sang trang đăng ký
+            Navigation.PushAsync(new RegisterPage());
         }
 
-        return false;
+        private async void OnForgotPasswordButtonClicked(object sender, EventArgs e)
+        {
+            // Điều hướng sang trang quên mật khẩu
+            await DisplayAlert("Thông báo", "Chuyển sang trang quên mật khẩu.", "OK");
+        }
     }
-
-    private async void OnRegisterButtonClicked(object sender, EventArgs e)
-    {
-        // Điều hướng sang trang đăng ký
-        await DisplayAlert("Thông báo", "Chuyển sang trang đăng ký.", "OK");
-        Navigation.PushAsync(new RegisterPage());
-    }
-
-    private async void OnForgotPasswordButtonClicked(object sender, EventArgs e)
-    {
-        // Điều hướng sang trang quên mật khẩu
-        await DisplayAlert("Thông báo", "Chuyển sang trang quên mật khẩu.", "OK");
-    }
-
 }

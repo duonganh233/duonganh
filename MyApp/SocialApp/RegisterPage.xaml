@@ -1,26 +1,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SocialApp.RegisterPage"
-             Title="Đăng Ký"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             Title="Đăng Ký">
+
     <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="CenterAndExpand">
-        <!-- Tiêu đề -->
         <Label Text="Đăng Ký" 
                FontSize="24" 
                FontAttributes="Bold" 
-               HorizontalOptions="Center"
+               HorizontalOptions="Center" 
                TextColor="#3498db" />
 
         <!-- Email -->
         <VerticalStackLayout>
-            <Label Text="Email" FontSize="16" TextColor="Gray" />
-            <Entry Placeholder="Nhập email" x:Name="EmailEntry" Keyboard="Email" TextColor="Black" />
+            <Label Text="Email" FontSize="16" TextColor="Black" />
+            <Entry Placeholder="Nhập email của bạn" 
+                   x:Name="EmailEntry" 
+                   Keyboard="Email" 
+                   TextColor="Black" />
         </VerticalStackLayout>
 
         <!-- Mật khẩu -->
         <VerticalStackLayout>
-            <Label Text="Mật khẩu" FontSize="16" TextColor="Gray" />
-            <Entry Placeholder="Nhập mật khẩu" x:Name="PasswordEntry" IsPassword="True" TextColor="Black" />
+            <Label Text="Mật khẩu" FontSize="16" TextColor="Black" />
+            <Entry Placeholder="Nhập mật khẩu" 
+                   x:Name="PasswordEntry" 
+                   IsPassword="True" 
+                   TextColor="Black" />
+        </VerticalStackLayout>
+
+        <!-- Xác nhận Mật khẩu -->
+        <VerticalStackLayout>
+            <Label Text="Xác nhận mật khẩu" FontSize="16" TextColor="Black" />
+            <Entry Placeholder="Nhập lại mật khẩu" 
+                   x:Name="ConfirmPasswordEntry" 
+                   IsPassword="True" 
+                   TextColor="Black" />
         </VerticalStackLayout>
 
         <!-- Nút Đăng Ký -->

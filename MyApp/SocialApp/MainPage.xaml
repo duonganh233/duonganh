@@ -1,0 +1,74 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialApp.MainPage"
+             BackgroundColor="White"
+             Title="Đăng Nhập">
+
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="CenterAndExpand">
+        <!-- Logo hoặc Tiêu đề ứng dụng -->
+        <Image Source="logo.png" 
+               HeightRequest="100" 
+               HorizontalOptions="Center" />
+
+        <Label Text="Đăng Nhập" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               TextColor="#3498db" />
+
+        <!-- Email -->
+        <VerticalStackLayout>
+            <Label Text="Email" FontSize="16" TextColor="Gray" InputTransparent="False" AutomationProperties.IsInAccessibleTree="False" />
+            <Entry Placeholder="Nhập email của bạn" 
+                   Keyboard="Email" 
+                   TextColor="Black"
+                   x:Name="EmailEntry" />
+        </VerticalStackLayout>
+
+        <!-- Mật khẩu -->
+        <VerticalStackLayout>
+            <Label Text="Mật khẩu" FontSize="16" TextColor="Gray" />
+            <Entry Placeholder="Nhập mật khẩu" 
+                   IsPassword="True"
+                   TextColor="Black"
+                   x:Name="PasswordEntry" />
+        </VerticalStackLayout>
+
+        <!-- Nút Đăng Nhập -->
+        <Button Text="Đăng Nhập" 
+                BackgroundColor="#3498db" 
+                TextColor="White" 
+                CornerRadius="10" 
+                HeightRequest="50" 
+                Clicked="OnLoginButtonClicked" />
+
+        <!-- Đăng ký và Quên mật khẩu -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+            <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                <Label Text="Chưa có tài khoản?" 
+               TextColor="Gray" 
+               VerticalOptions="Center" />
+                <Button Text="Đăng Ký" 
+                BackgroundColor="Transparent" 
+                TextColor="#3498db" 
+                FontAttributes="Bold" 
+                VerticalOptions="Center"
+                Clicked="OnRegisterButtonClicked" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                <Label Text="Quên mật khẩu?" 
+               TextColor="Gray" 
+               VerticalOptions="Center" />
+                <Button Text="Lấy Lại" 
+                BackgroundColor="Transparent" 
+                TextColor="#3498db" 
+                FontAttributes="Bold" 
+                VerticalOptions="Center"
+                Clicked="OnForgotPasswordButtonClicked" />
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+
+    </VerticalStackLayout>
+</ContentPage>

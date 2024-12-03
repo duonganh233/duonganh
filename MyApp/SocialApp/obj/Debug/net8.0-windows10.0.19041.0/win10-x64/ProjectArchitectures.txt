@@ -1,0 +1,1 @@
+C:\Users\duong\source\repos\MyApp\SocialApp\SocialApp.csproj;x64

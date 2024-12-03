@@ -1,0 +1,34 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SocialApp.RegisterPage"
+             Title="Đăng Ký"
+             BackgroundColor="White">
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="CenterAndExpand">
+        <!-- Tiêu đề -->
+        <Label Text="Đăng Ký" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               TextColor="#3498db" />
+
+        <!-- Email -->
+        <VerticalStackLayout>
+            <Label Text="Email" FontSize="16" TextColor="Gray" />
+            <Entry Placeholder="Nhập email" x:Name="EmailEntry" Keyboard="Email" TextColor="Black" />
+        </VerticalStackLayout>
+
+        <!-- Mật khẩu -->
+        <VerticalStackLayout>
+            <Label Text="Mật khẩu" FontSize="16" TextColor="Gray" />
+            <Entry Placeholder="Nhập mật khẩu" x:Name="PasswordEntry" IsPassword="True" TextColor="Black" />
+        </VerticalStackLayout>
+
+        <!-- Nút Đăng Ký -->
+        <Button Text="Đăng Ký" 
+                BackgroundColor="#3498db" 
+                TextColor="White" 
+                CornerRadius="10" 
+                HeightRequest="50" 
+                Clicked="OnRegisterButtonClicked" />
+    </VerticalStackLayout>
+</ContentPage>
